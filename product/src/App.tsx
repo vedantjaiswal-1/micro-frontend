@@ -3,16 +3,23 @@ import ReactDOM from "react-dom";
 import { Footer } from "home/Footer";
 import { Header } from "home/Header";
 import { HomeContent } from "home/HomeContent";
+import { UserContent } from "home/UserContent";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./index.scss";
+import { UserDetail } from "./UserDetail";
 
 const App = () => (
   <div>
     <Header />
-    <div className="my-10">
-      <HomeContent />
-    </div>
-    <Footer />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeContent />} />
+        <Route path="/user-detail" element={<UserContent />} />
+        <Route path="/user-info" element={<UserDetail />} />
+      </Routes>
+    </BrowserRouter>
   </div>
 );
 
