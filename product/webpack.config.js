@@ -46,7 +46,9 @@ module.exports = {
       remotes: {
         "home": "home@http://localhost:3000/remoteEntry.js"
       },
-      exposes: {},
+      exposes: {
+        "./UserDetail": "./src/UserDetail"
+      },
       shared: {
         ...deps,
         react: {
