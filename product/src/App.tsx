@@ -16,8 +16,10 @@ const App = () => (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeContent />} />
-        <Route path="/user-detail" element={<UserContent />} />
-        <Route path="/user-info" element={<UserDetail />} />
+        <Route path="/users" element={<UserContent />} />
+        <Route path="/users-detail" element={<UserDetail />}>
+          <Route path=":usersId" element={<UserDetail />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </div>

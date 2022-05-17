@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import UserService from "./Services/UserService";
+import { Link } from "react-router-dom";
+import { getUsers } from "./UserService";
 
 export const UserContent = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<any>([]);
 
   const loadUsers = () => {
-    UserService.getUsers()
+    getUsers()
       .then((response: any) => {
         setUsers(response);
       })
@@ -25,9 +26,11 @@ export const UserContent = () => {
           return (
             <div key={item?.id}>
               <div className="text-center">
+                <Link to={`/users-detail/${item?.id}`}>
                 <img src={item?.image} className="rounded-lg w-44 h-44 mb-4 mx-auto" alt="Avatar" />
                 <h5 className="text-xl font-medium leading-tight mb-2">{item?.name}</h5>
                 <p className="text-gray-500">{item?.email}</p>
+                </Link>
               </div>
             </div>
           );
